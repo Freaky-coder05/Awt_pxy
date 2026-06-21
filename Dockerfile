@@ -14,7 +14,7 @@ RUN pip install cryptography uvloop
 # Create a startup script to link Koyeb environment variables to the proxy config
 RUN echo "import os" > start.py && \
     echo "port = int(os.environ.get('PORT', 8080))" >> start.py && \
-    echo "secret = os.environ.get('SECRET', 'b7e701c9d7d5440625f54070a9fa24cc')" >> start.py && \
+    echo "secret = 'a1b2c3d4e5f678901a2b3c4d5e6f7a8b'" >> start.py && \
     echo "with open('config.py', 'w') as f:" >> start.py && \
     echo "    f.write(f'PORT = {port}\\n')" >> start.py && \
     echo "    f.write(f\"USERS = {{'koyeb_user': '{secret}'}}\\n\")" >> start.py && \
